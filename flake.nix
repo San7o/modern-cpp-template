@@ -27,6 +27,8 @@
           packages = with pkgsFor.${system}; [
             gcc14                   # compiler
             cmake                   # build system
+            meson                   # build system
+            ninja                   # build system
             valgrind                # memory debugger
             clang-tools             # code formatting
             gdb                     # debugger

@@ -18,9 +18,15 @@ The template is composed of:
 
 ## Building
 
+### cmake
 ```bash
 cmake -Bbuild
 cmake --build build -j 4
+```
+### meson
+```bash
+meson setup build
+ninja -C build
 ```
 
 ## Testing
