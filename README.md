@@ -4,11 +4,11 @@ This repo serves as a template for my C++ projects.
 
 The template is composed of:
 
-- [cmake](./CMakeLists.txt) build file, already configured for:
+- [cmake](./CMakeLists.txt) and [meson](./meson.build) build files, already configured for:
     - testing / fuzzing / benchmarking
     - static and dynamic library build
     - gcc or clang option with c++23
-    - [CPM](https://github.com/cpm-cmake/CPM.cmake) as the default dependency manager
+    - [CPM](https://github.com/cpm-cmake/CPM.cmake) as cmake dependency manager
 - [valFuzz](https://github.com/San7o/valFuzz) for testing, fuzzing and benchmarking
 - [doxygen](./doxtgen.conf) documentation
 - [clang-format](./.clang-format) settings
