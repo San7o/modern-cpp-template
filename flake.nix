@@ -29,19 +29,32 @@
             cmake                   # build system
             meson                   # build system
             ninja                   # build system
+            bazelisk                # build system
             valgrind                # memory debugger
+            python312               # scripting
+            python312Packages.pip   # python package manager
             clang-tools             # code formatting
             gdb                     # debugger
             doxygen                 # documentation
             pre-commit              # git hooks
             libz.dev                # compression
             llvmPackages.libcxxClang
+            stdenv.cc.cc.lib
+
+            # need those for numpy
+            glib
+            # You need the following only if you are on wayland
+            xorg.libX11
+            xorg.libxcb
+            xorg.libICE
+            xorg.libSM
+            xorg.libXext
           ];
           shellHook = ''
               zsh
           '';
 
-          LD_LIBRARY_PATH="${pkgsFor.${system}.libz.dev}";
+          LD_LIBRARY_PATH="${pkgsFor.${system}.libz.dev}:${pkgsFor.${system}.stdenv.cc.cc.lib}/lib";
           CMAKE_CXX_COMPILER="${pkgsFor.${system}.gcc14}/bin/:${pkgsFor.${system}.clang_18}/bin/";
         };
     });
