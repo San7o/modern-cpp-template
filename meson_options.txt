@@ -1,3 +1,5 @@
 option('MYLIB_BUILD_SHARED', type: 'boolean', value: 'true', description:'Build shared library')
 option('MYLIB_BUILD_STATIC', type: 'boolean', value: 'false', description: 'Build static library')
 option('MYLIB_BUILD_TESTS', type: 'boolean', value: 'true', description: 'Build tests')
+option('MYLIB_BUILD_OPTIMIZED', type: 'boolean', value: 'false', description: 'Build optimized')
+option('MYLIB_BUILD_OPTIMIZED_AGGRESSIVE', type: 'boolean', value: 'false', description: 'Build with maximum optimization')

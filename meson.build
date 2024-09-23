@@ -36,6 +36,13 @@ valfuzz_dep = valfuzz_proj.dependency('valfuzz_shared')
 base_sources = files(
   'src/mylib.cpp'
 )
+
+if get_option('MYLIB_BUILD_OPTIMIZED_AGGRESSIVE')
+  add_project_arguments('-O3', '-ffast-math', '-march=native', language: 'cpp')
+elif get_option('MYLIB_BUILD_OPTIMIZED')
+  add_project_arguments('-O3', language: 'cpp')
+endif
+
 if get_option('MYLIB_BUILD_SHARED')
   shared_library('mylib',
     sources: base_sources,
