@@ -30,6 +30,7 @@ option(MYLIB_BUILD_STATIC "Build static library" OFF)
 option(MYLIB_BUILD_OPTIMIZED "Build optimized" OFF)
 option(MYLIB_BUILD_OPTIMIZED_AGGRESSIVE "Build with maximum optimization" OFF)
 
+set(ENV{CPM_SOURCE_CACHE} ${CMAKE_CURRENT_SOURCE_DIR}/deps)
 include(cmake/CPM.cmake) # <3
 CPMUsePackageLock(package-lock.cmake)
 CPMAddPackage(
