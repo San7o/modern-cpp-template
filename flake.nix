@@ -30,6 +30,7 @@
             meson                   # build system
             ninja                   # build system
             bazelisk                # build system
+            ccache                  # compiler cache
             valgrind                # memory debugger
             python312               # scripting
             python312Packages.pip   # python package manager

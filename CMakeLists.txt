@@ -34,6 +34,11 @@ set(ENV{CPM_SOURCE_CACHE} ${CMAKE_CURRENT_SOURCE_DIR}/deps)
 include(cmake/CPM.cmake) # <3
 CPMUsePackageLock(package-lock.cmake)
 CPMAddPackage(
+  NAME Ccache.cmake
+  GITHUB_REPOSITORY TheLartians/Ccache.cmake
+  VERSION 1.2
+)
+CPMAddPackage(
     NAME valfuzz
     GITHUB_REPOSITORY San7o/valFuzz
     GIT_TAG v1.0.1
