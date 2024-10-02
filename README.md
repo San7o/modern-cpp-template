@@ -28,6 +28,10 @@ cmake --build build -j 4
 meson setup build
 ninja -C build
 ```
+### bazel
+```bash
+bazel build //src:mylib --sandbox_debug --verbose_failures
+```
 
 ## Testing
 ```
