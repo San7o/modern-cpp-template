@@ -5,3 +5,6 @@ format:
 
 docs:
 	doxygen doxygen.conf
+
+check:
+	cppcheck --enable=all include/mylib/*.hpp --suppress=unusedFunction -I include  --suppress=missingIncludeSystem --quiet --error-exitcode=1

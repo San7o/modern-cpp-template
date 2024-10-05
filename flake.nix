@@ -39,6 +39,7 @@
             doxygen                 # documentation
             pre-commit              # git hooks
             libz.dev                # compression
+            cppcheck                # static analysis
             llvmPackages.libcxxClang
             stdenv.cc.cc.lib
 
