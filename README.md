@@ -15,6 +15,7 @@ The template is composed of:
 - [nix](./flake.nix) developement shell
 - [cppcheck](https://cppcheck.sourceforge.io/) for static analysis 
 - [LICENSE](./LICENSE), [CONTRIBUTING](./CONTRIBUTING.md) and other [git](./.gitattributes) files
+- github workflow
 - useful ready [commands](./Makefile)
 
 ## Building
