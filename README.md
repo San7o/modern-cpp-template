@@ -4,7 +4,7 @@ This repo serves as a template for my C++ projects.
 
 The template is composed of:
 
-- [cmake](./CMakeLists.txt) and [meson](./meson.build) build files, already configured for:
+- [cmake](./CMakeLists.txt), [meson](./meson.build) and [bazel](https://bazel.build/) build files, already configured for:
     - testing / fuzzing / benchmarking
     - static and dynamic library build
     - gcc or clang option with c++23
@@ -13,6 +13,7 @@ The template is composed of:
 - [doxygen](./doxtgen.conf) documentation
 - [clang-format](./.clang-format) settings
 - [nix](./flake.nix) developement shell
+- [cppcheck](https://cppcheck.sourceforge.io/) for static analysis 
 - [LICENSE](./LICENSE), [CONTRIBUTING](./CONTRIBUTING.md) and other [git](./.gitattributes) files
 - useful ready [commands](./Makefile)
 
