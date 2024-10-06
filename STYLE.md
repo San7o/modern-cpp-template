@@ -9,12 +9,12 @@ This document contains a collection of best practices and opinionated style for 
 - include a copy of the license in every file so that there is no ambiguity on the license if the code gets borrowed.
 - use [Allman Style](https://en.wikipedia.org/wiki/Indentation_style#Allman_style), It's way easier to select blocks of code when editing files.
 - never throw exceptions, don't be evil
-- use exlicit namespaces in your code
+- use explicit namespaces in your code
 
 ## Performance
 
 ### Heap vs Stack
-Heap allocations are the most expensive thinhs we commonly do, deallocations are the second
+Heap allocations are the most expensive things we commonly do, deallocations are the second
 most expensive. The stack is contiguous so It has great locality of reference: unless something
 is pretty big, if it has local scope and fixed size it should be on the stack.
 
@@ -31,15 +31,16 @@ is pretty big, if it has local scope and fixed size it should be on the stack.
 |           | Deque     | 1.4             | 1.03        |
 |           | Vector    | 8.6             | 0.43        |
 
-### RVO
-- empty structs have size of 1, but if they are extended they have size 0 whanks to
+### Optimizations
+- empty structs have size of 1, but if they are extended they have size 0 size thanks to
 **Empty Base Optimization**.
 - compilers do **Return Value Optimization** when returning a temporary object or a
 local variable (**Named Return Value Optimization**) unless:
     - there are multiple return paths where different objects are returned
     - a function parameter or a member value is returned
     - a non local object is returned
-Don't return with `std::move` because it will inhibit RVO
+
+Don't return with `std::move` because it will inhibit RVO, unless RVO is not applied.
 
 ### \__restrict\___
 
@@ -60,6 +61,7 @@ When to construct in place:
 - with unmovable types
 - to ensure lifetime stability
 - to insert a default-constructed element
+
 Do not use it
 - when It's a copy anyway
 - when you want to ensure that explicit constructors are not called
@@ -90,9 +92,8 @@ really necessary.
 When `std::vector.clear()` is called, the vector is zeroed out but the memory is still allocated.
 
 ### Classes
-A constructor with only one argument shall be `explicit`, unless this is not intentinally required.
-
-Use `RAII`.
+- A constructor with only one argument shall be `explicit`, unless this is not intentinally required.
+- Use `RAII`.
 
 ## Security
 
@@ -135,7 +136,7 @@ for (int i = 0; i < N; i++) {
 ```
 
 ## UB
-``cpp
+```cpp
 bool a; // uninitialized local variable
 if (a)  // UB access to uninitialized scalar
     b = 42;
