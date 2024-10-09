@@ -54,3 +54,9 @@ The library uses doxygen for documentation, to build the html documentation run:
 ```
 make docs
 ```
+
+## Change name
+To change the name of the template, run:
+```bash
+./set-name <your-name>
+```
