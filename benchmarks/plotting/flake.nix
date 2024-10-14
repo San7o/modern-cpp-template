@@ -1,5 +1,5 @@
 {
-  description = "C++ development environment";
+  description = "python uv development environment";
 
   inputs = {
     nixpkgs = { url = "github:nixos/nixpkgs/nixos-unstable"; };
@@ -22,32 +22,31 @@
           stdenv = pkgsFor.${system}.gcc14Stdenv;
         } {
 
-          name = "c++-dev-shell";
+          name = "python-dev-shell";
           hardeningDisable = ["all"];
           packages = with pkgsFor.${system}; [
             gcc14                   # compiler
-            cmake                   # build system
-            meson                   # build system
-            ninja                   # build system
-            bazel_6                 # build system
-            ccache                  # compiler cache
-            valgrind                # memory debugger
-            python312               # scripting
-            python312Packages.pip   # python package manager
-            clang-tools             # code formatting
-            gdb                     # debugger
-            doxygen                 # documentation
-            pre-commit              # git hooks
-            libz.dev                # compression
-            cppcheck                # static analysis
-            llvmPackages.libcxxClang
             stdenv.cc.cc.lib
+            python312               # python 3.12 (stable)
+            python312Packages.uv    # Python project manager
+
+            # need those for numpy
+            glib
+            libz
+            zlib
+            # You need the following only if you are on wayland
+            xorg.libX11
+            xorg.libxcb
+            xorg.libICE
+            xorg.libSM
+            xorg.libXext
           ];
           shellHook = ''
+              export PYTHONPATH="$(pwd)"
               zsh
           '';
 
-          LD_LIBRARY_PATH="${pkgsFor.${system}.libz.dev}:${pkgsFor.${system}.stdenv.cc.cc.lib}/lib";
+          LD_LIBRARY_PATH="${pkgsFor.${system}.libz}/lib:${pkgsFor.${system}.stdenv.cc.cc.lib}/lib:${pkgsFor.${system}.zlib}/lib";
           CMAKE_CXX_COMPILER="${pkgsFor.${system}.gcc14}/bin/:${pkgsFor.${system}.clang_18}/bin/";
         };
     });

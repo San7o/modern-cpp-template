@@ -1,5 +1,6 @@
 class array_data:
     data = {
-        "gcc": 1.18,
-        "clang": 1.28
+        'Input Size': [10000, 20000, 30000, 40000],
+        'Time': [0.004, 0.006, 0.008, 0.010],
+        'Type': 'Array Benchmark',
     }
