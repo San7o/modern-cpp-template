@@ -24,13 +24,3 @@ Run jupyter notebook:
 ```bash
 python3 -m jupyter lab
 ```
-
-## read system data
-
-Read memory speed:
-```bash
-sudo dmidecode --type 17 | grep "Memory Speed"
-```
-
-## TODO
-Use seaborn
