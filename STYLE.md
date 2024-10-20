@@ -15,7 +15,7 @@ What is correctness? It is safe to say that a program is correct if It compiles
 without errors. While there is truth in this statement, correctness is not so
 simple to define. Consider the following example: I want to pass a variable
 to a function that only performs read operations on the variable. I may pass
-the variable by copy, by reference or by const reference. Even if all those options
+the variable by copy, by reference or by const reference. Even if all these options
 are valid programs, I would argue that one is more correct over the others given
 a specific context. But what if I did not know that you could pass a value by
 referece? I would consider the pass by copy as correct and move on in life, which
@@ -31,7 +31,35 @@ is subjective, such as beauty. So in my attempts to write what I consider C++ co
 be correct, I decided to write this manuscipt to express what I consider "beautiful code"
 and the principles I follow on my own code that are my definition of correctness.
 
-## Structure
+## Developement Process
+
+When talking about C++ correctness, we have to also talk about the process of designing
+and implementing code such as a library. To prevent wasting time when writing code, It
+is useful to first write down the structure of the codebase, It's data structures and interfaces,
+and then start writing code. Now, In an ideal world we would all do this, but in the
+world we live in time is a finite resource. Therefore a balance is needed between designing
+and writing code, and It's a difficult skill to develop. As any engeneering project, a programmer
+should first split the big problem into smaller problems recursively until he/she feels satisfied
+and have a decent plan to implement. This is good enough for smal / medium sized projects
+and requires more attention on big projects where multiple people are involved.
+
+## Testing
+
+After writing some stable code, everything must be thoroughly tested. I will put this clearely: **you cannot
+assume that your code works if you did not write a bunch of testcases to test it**, covering
+all the cornercases you can find. When discussing optimizations and changes reguarding performance,
+you should always **benchmark** you application. The user's api must be also **fuzzed** extensively
+because you never know if you actually found all test cases or not.
+
+## Documentation
+
+A good project has good documentation explaining in natural language how the system works on a higher
+level ov abstraction. It's mostly useless to have code documentation on single functions that
+just explain what the function does: you should be able to understand It clearly as you used
+a good and intuitive name and expressed the constraints with the type system. The documentation
+should explain at large how a function should be used and why, with some context and examples.
+
+## On Structure
 
 - c++ header files are saved as `.hpp` while c headers are saved as `.h`.
 - use `#pragma once` in every header file, I consider `#ifndef` depricated.
