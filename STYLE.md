@@ -1,21 +1,46 @@
 # style
 
-This document contains a collection of best practices and opinionated style for the project.
+## Abstract
+
+The complexity of modern C++ poses significant challenges for collaborative
+code development across different teams and time frames. Variations in the
+interpretation of correctness and best practices can lead to inconsistencies
+in the codebase. This manuscript presents an opinionated collection of best practices
+and stylistic guidelines, specifically tailored to ensure consistency and
+maintainability within the project.
+
+## On Correctnes
+
+What is correctness? It is safe to say that a program is correct if It compiles
+without errors. While there is truth in this statement, correctness is not so
+simple to define. Consider the following example: I want to pass a variable
+to a function that only performs read operations on the variable. I may pass
+the variable by copy, by reference or by const reference. Even if all those options
+are valid programs, I would argue that one is more correct over the others given
+a specific context. But what if I did not know that you could pass a value by
+referece? I would consider the pass by copy as correct and move on in life, which
+is not good for the codebase.
+This can happen everywhere in the code so we should look for external resources for guidance.
+Some standards have been compiled such as [C++ Coding Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+and [MISRA C++](https://misra.org.uk/misra-cpp2023-released-including-hardcopy/), and
+tools were written to automaically check the complience to these rules such as
+[cppcheck](https://github.com/danmar/cppcheck). So did we solve the problem? Is a
+program correct if It follows these guidelines? I think It is more complex than this
+and It may be true that a general formula for correctness may not exist and everything
+is subjective, such as beauty. So in my attempts to write what I consider C++ code to
+be correct, I decided to write this manuscipt to express what I consider "beautiful code"
+and the principles I follow on my own code that are my definition of correctness.
 
 ## Structure
 
 - c++ header files are saved as `.hpp` while c headers are saved as `.h`.
-- use `#pragma once` in every header file, unless high backward compatibility is a requirement.
+- use `#pragma once` in every header file, I consider `#ifndef` depricated.
 - include a copy of the license in every file so that there is no ambiguity on the license if the code gets borrowed.
 - use [Allman Style](https://en.wikipedia.org/wiki/Indentation_style#Allman_style), It's way easier to select blocks of code when editing files.
 - never throw exceptions, don't be evil
 - use explicit namespaces in your code
 
 ## Performance
-
-> Software is getting slower more rapidly than hardware becomes faster
-
-[source](https://www.youtube.com/watch?v=fHNmRkzxHWs)
 
 I think that a more performant program is a more correct program, so we should
 care about performance to write correct applications.
