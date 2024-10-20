@@ -41,7 +41,8 @@ world we live in time is a finite resource. Therefore a balance is needed betwee
 and writing code, and It's a difficult skill to develop. As any engeneering project, a programmer
 should first split the big problem into smaller problems recursively until he/she feels satisfied
 and have a decent plan to implement. This is good enough for smal / medium sized projects
-and requires more attention on big projects where multiple people are involved.
+and requires more attention on big projects where multiple people are involved. The process
+may vary extensively between projects so I won't stress you much on this point.
 
 ## Testing
 
@@ -59,7 +60,7 @@ just explain what the function does: you should be able to understand It clearly
 a good and intuitive name and expressed the constraints with the type system. The documentation
 should explain at large how a function should be used and why, with some context and examples.
 
-## On Structure
+## Structure
 
 - c++ header files are saved as `.hpp` while c headers are saved as `.h`.
 - use `#pragma once` in every header file, I consider `#ifndef` depricated.
@@ -126,7 +127,12 @@ void test(int *__restrict__ arr, int *__restrict__ count)
     	arr[i] = 0;
 }
 ```
-
+Note that this only works for GCC. You can add this three lines so that the code can compile on each compiler.
+```cpp
+#ifndef __GNUC__
+#define __restrict__ 
+#endif
+```
 
 ### construct in place
 When to construct in place:
@@ -219,7 +225,7 @@ X *getX(std::string key, std::unordered_map<std::string, std::unique_ptr<X> &cac
     return cache[key].get();
 }
 // this code computes the hash of key 4 times, which is not nice. We could have just added
-std::unique_ptr<X> %entry = cache[key];
+// std::unique_ptr<X> entry = cache[key];
 // and use this
 ```
 

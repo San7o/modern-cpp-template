@@ -32,8 +32,6 @@
             bazel_6                 # build system
             ccache                  # compiler cache
             valgrind                # memory debugger
-            python312               # scripting
-            python312Packages.pip   # python package manager
             clang-tools             # code formatting
             gdb                     # debugger
             doxygen                 # documentation
