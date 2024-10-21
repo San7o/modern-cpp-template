@@ -60,9 +60,11 @@ just explain what the function does: you should be able to understand It clearly
 a good and intuitive name and expressed the constraints with the type system. The documentation
 should explain at large how a function should be used and why, with some context and examples.
 
-## Structure
+## Structure & Style
 
-- c++ header files are saved as `.hpp` while c headers are saved as `.h`.
+- c++ header files are saved as `.hpp` while c headers are saved as `.h`. Header files should be placed in a dedicated
+directory separated from the source files so that the user of the library can just copy the headers directory into Its
+project and be good to go.
 - use `#pragma once` in every header file, I consider `#ifndef` depricated.
 - include a copy of the license in every file so that there is no ambiguity on the license if the code gets borrowed.
 - use [Allman Style](https://en.wikipedia.org/wiki/Indentation_style#Allman_style), It's way easier to select blocks of code when editing files.
@@ -133,6 +135,20 @@ Note that this only works for GCC. You can add this three lines so that the code
 #define __restrict__ 
 #endif
 ```
+
+### Alignment
+Consider the following example:
+```cpp
+struct s1 {
+    char c;
+    int i[2];
+    double v;
+};
+```
+You might think that It takes 1 + (4*2) + 8 = 17 bytes in memory, but It actually takes 24 (you can check this using `sizeof()`).
+This is because each variable must be aligned to a multiple of It's size, for example `int` is 4 bytes
+so It will need to pad 3 bytes after the char. Unfortunately, we cannot rewrite this any better because the struct must terminate
+at an 8 byte offset because It might be in an array and It needs to be aligned.
 
 ### construct in place
 When to construct in place:
