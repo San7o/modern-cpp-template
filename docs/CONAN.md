@@ -6,7 +6,7 @@ If It's your first time using conan, you first need conan installed
 in your system. Conan is already contained in the nix flake provided
 by this repo.
 
-Once you have conan installed, run the following to detext your system's
+Once you have conan installed, run the following to detect your system's
 settings:
 
 ```bash
