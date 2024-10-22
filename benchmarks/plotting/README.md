@@ -15,6 +15,11 @@ Enter the python edevelopement environment
 source .venv/bin/activate
 ```
 
+Create a kernel for jupyter:
+```bash
+python -m ipykernel install --user --name=venv
+```
+
 Install the requirements:
 ```bash
 pip install -r requirements.txt
@@ -22,5 +27,5 @@ pip install -r requirements.txt
 
 Run jupyter notebook:
 ```bash
-python3 -m jupyter lab
+jupyter lab
 ```

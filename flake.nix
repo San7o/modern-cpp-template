@@ -38,8 +38,9 @@
             pre-commit              # git hooks
             libz.dev                # compression
             cppcheck                # static analysis
-            llvmPackages.libcxxClang
-            stdenv.cc.cc.lib
+            llvmPackages.libcxxClang  # C++ standard library
+            stdenv.cc.cc.lib        # C++ standard library
+            conan                   # package manager
           ];
           shellHook = ''
               zsh

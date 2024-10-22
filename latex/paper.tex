@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+
+\usepackage{sectsty}    % set section font
+\usepackage{graphicx}
+\usepackage{blindtext}  % generate random text
+\usepackage{multicol}   % multiple columns
+\usepackage[a4paper,
+            bindingoffset=.2in,
+            left=.45in,
+            right=.65in,
+            top=.8in,
+            bottom=1in,
+            footskip=.5in]  % page number
+            {geometry}
+
+% set font family
+\usepackage{times}
+\usepackage{anyfontsize}
+
+% set roman numbers in sections
+\renewcommand{\thesection}{\small\Roman{section}}
+% set section and subsection font
+\sectionfont{\fontsize{9}{1}\selectfont\sffamily}
+\subsectionfont{\fontsize{9}{1}\selectfont\itshape}
+
+% begin ---------------------------------------
+\begin{document}
+
+\fontsize{9}{10}\selectfont  % set font size and spacing
+
+\begin{center}
+% title
+\section*{\huge{\sffamily Efficient string matching algorithms for large datasets}}
+Giovanni Santini \\
+\textit{Dept.\ of Information Engineering \\
+and Computer Science} \\
+\textit{University of Trento} \\
+Tento, Italy \\
+giovanni.santini@unitn.it
+\end{center}
+
+\bigskip
+
+\begin{multicols}{2}
+
+\textbf{\textit{Abstract}--
+High-Performance Computing (HPC) technology is
+impacting several industries, including the creative industries
+and those operating in the Internet of Things. However, thus
+far, scarce attention has been devoted by researchers to the use
+of such technology in Internet of Sounds (IoS) settings. The
+IoS is a new area emerging in industry and academia as an
+extension of the IoT to the sonic domain, both in musical and
+non-musical contexts. The IoS relates to a distributed network
+of sound things, which are devices capable of sensing, acquiring,
+processing, actuating, and exchanging data serving the purpose
+of communicating sound-related information. In this position
+paper, we investigate the integration of HPC technology with
+the IoS. We illustrate such integration via a set of application
+scenarios showing how the IoS can benefit from HPC.\ Finally, we
+discuss the open challenges ahead of us to implement a successful
+integration of these two kinds of technology. \\
+\indent \textit{Index Terms}--Internet of Sounds, High-Performance
+Computing, audio processing
+}
+
+\fontsize{9}{11}\selectfont  % set font size and spacing
+
+\begingroup\centering\section{INTRODUCTION}\endgroup
+
+% lorem ipsum
+\blindtext\blindtext\blindtext
+
+
+\begingroup\centering\section{RELATED WORK}\endgroup
+
+\blindtext\blindtext\blindtext
+
+
+
+\begingroup\centering\section{BODY}\endgroup
+
+\blindtext\blindtext\blindtext
+
+
+
+\begingroup\centering\section{EVALUATION}\endgroup
+
+\blindtext\blindtext\blindtext
+
+
+
+\begingroup\centering\section{CONCLUSIONS}\endgroup
+
+\blindtext\blindtext\blindtext
+
+
+
+\begingroup\centering\section{APPENDIX}\endgroup
+
+\blindtext\blindtext\blindtext
+
+
+
+\begingroup\centering\section{REFERENCES}\endgroup
+
+\blindtext\blindtext\blindtext
+
+
+% end -----------------------------------------
+\end{multicols}
+\end{document}
