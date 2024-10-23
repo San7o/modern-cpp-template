@@ -281,6 +281,6 @@ foo(x);                 // Undefined behavior
  - 202302L(C++23)
 
 ## Nice talks
-- [Alan Talbot - Moving Faster: Everyday efficiency in modern C++](https://www.youtube.com/watch?v=EovBkh9wDnM)
-- [Jason Turner - Great C++ is_trivial: trivial type traits](https://www.youtube.com/watch?v=bpF1LKQBgBQ)
-- [Chandler Carruth - Understanding Compiler Optimization](https://www.youtube.com/watch?v=fHNmRkzxHWs)
+- [Alan Talbot - Moving Faster: Everyday efficiency in modern C++](https://www.youtube.com/watch?v=EovBkh9wDnM): tips and tricks for efficiency
+- [Jason Turner - Great C++ is_trivial: trivial type traits](https://www.youtube.com/watch?v=bpF1LKQBgBQ): lots of examples
+- [Chandler Carruth - Understanding Compiler Optimization](https://www.youtube.com/watch?v=fHNmRkzxHWs): good introduction to the inner working of the compiler
