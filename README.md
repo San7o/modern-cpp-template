@@ -34,6 +34,7 @@ ninja -C build
 ```bash
 bazel build //src:mylib --sandbox_debug --verbose_failures
 ```
+The binaries will be generated in `bazel-build`
 
 ## Testing
 ```

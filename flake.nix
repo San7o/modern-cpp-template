@@ -41,6 +41,7 @@
             llvmPackages.libcxxClang  # C++ standard library
             stdenv.cc.cc.lib        # C++ standard library
             conan                   # package manager
+            pkg-config              # library metadata
           ];
           shellHook = ''
               zsh
