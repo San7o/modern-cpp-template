@@ -23,7 +23,8 @@ add_project_arguments(
 cmake = import('cmake')
 cmake_opts = cmake.subproject_options()
 cmake_opts.add_cmake_defines({
-  'VALFUZZ_BUILD_SHARED': 'ON'
+  'VALFUZZ_BUILD_SHARED': 'ON',
+  'CMAKE_BUILD_TYPE': 'Release',
 })
 valfuzz_proj = cmake.subproject(
   'valfuzz',
@@ -38,9 +39,23 @@ base_sources = files(
 )
 
 if get_option('MYLIB_BUILD_OPTIMIZED_AGGRESSIVE')
+  message('Building with aggressive optimization flags')
   add_project_arguments('-O3', '-ffast-math', '-march=native', language: 'cpp')
-elif get_option('MYLIB_BUILD_OPTIMIZED')
+elif get_option('MYLIB_BUILD_OPTIMIZED_O3')
+  message('Building with -O3 optimization level')
   add_project_arguments('-O3', language: 'cpp')
+elif get_option('MYLIB_BUILD_OPTIMIZED_O2')
+  message('Building with -O2 optimization level')
+  add_project_arguments('-O2', language: 'cpp')
+elif get_option('MYLIB_BUILD_OPTIMIZED_O1')
+  message('Building with -O1 optimization level')
+  add_project_arguments('-O1', language: 'cpp')
+elif get_option('MYLIB_BUILD_NO_OPTIMIZED')
+  message('Building with -O0 optimization level')
+  add_project_arguments('-O0', language: 'cpp')
+else
+  message('No optimization level specified, using -O3')
+  add_project_arguments('-O3', language: 'cpp') # default
 endif
 
 if get_option('MYLIB_BUILD_SHARED')

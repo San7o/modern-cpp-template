@@ -1,0 +1,3 @@
+[submodule "valFuzz"]
+	path = valFuzz
+	url = https://github.com/San7o/valFuzz.git
