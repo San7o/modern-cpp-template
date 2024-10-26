@@ -32,16 +32,11 @@ ninja -C build
 ```
 ### bazel
 ```bash
-bazel build //src:mylib --sandbox_debug --verbose_failures
+bazel build //:mylib
 ```
 The binaries will be generated in `bazel-build`
 
 ## Testing
-```
-cmake -Bbuild -DMYLIB_BUILD_TESTS=ON
-cmake --build build -j 4
-./build/tests --help
-```
 The library uses [valFuzz](https://github.com/San7o/valFuzz) for testing
 ```c++
 ./build/tests              # run tests

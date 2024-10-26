@@ -14,7 +14,10 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 set(MYLIB_SOURCES src/mylib.cpp)
 set(MYLIB_HEADERS include)
-set(MYLIB_COMPILE_OPTIONS -Wall -Wextra -Wpedantic -Werror -Wconversion -Wshadow)
+set(MYLIB_COMPILE_OPTIONS
+        -Wall -Wextra -Wpedantic -Werror
+        -Wconversion -Wshadow
+)
 set(MYLIB_TEST_SOURCES
         tests/mylib_test.cpp
         fuzz/mylib_fuzz.cpp
