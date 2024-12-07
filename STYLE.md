@@ -9,6 +9,17 @@ in the codebase. This manuscript presents an opinionated collection of best prac
 and stylistic guidelines, specifically tailored to ensure consistency and
 maintainability within the project.
 
+## Principles
+
+- **Trust the process**
+- **KISS**
+- **Do not optimize early**
+
+## Security Principles
+
+- **Principle of least priviledges**
+- **More code = More attack surface**
+
 ## On Correctnes
 
 What is correctness? It is safe to say that a program is correct if It compiles
